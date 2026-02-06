@@ -1,7 +1,7 @@
 ---
-name: openguardrails-for-openclaw-for-openclaw
+name: openguardrails-for-openclaw
 description: Detect and block prompt injection attacks hidden in long content (emails, web pages, documents) using OpenGuardrails SOTA detection
-metadata: {"openclaw":{"emoji":"🔒","homepage":"https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw-for-openclaw"}}
+metadata: {"openclaw":{"emoji":"🔒","homepage":"https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw"}}
 ---
 
 # OpenGuardrails for OpenClaw Plugin Guide
@@ -28,7 +28,7 @@ Without protection, your agent may follow these malicious instructions, leading 
 Install the plugin from npm:
 
 ```bash
-openclaw plugins install openguardrails-for-openclaw-for-openclaw
+openclaw plugins install openguardrails-for-openclaw
 ```
 
 Restart the gateway to load the plugin:

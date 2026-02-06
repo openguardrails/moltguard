@@ -1,15 +1,15 @@
 # OpenGuardrails for OpenClaw
 
-[![npm version](https://img.shields.io/npm/v/openguardrails-for-openclaw-for-openclaw.svg)](https://www.npmjs.com/package/openguardrails-for-openclaw-for-openclaw)
-[![GitHub](https://img.shields.io/github/license/openguardrails-for-openclaw/openguardrails-for-openclaw-for-openclaw)](https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw-for-openclaw)
+[![npm version](https://img.shields.io/npm/v/openguardrails-for-openclaw.svg)](https://www.npmjs.com/package/openguardrails-for-openclaw)
+[![GitHub](https://img.shields.io/github/license/openguardrails-for-openclaw/openguardrails-for-openclaw)](https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw)
 
 Detect prompt injection attacks hidden in long content (emails, web pages, documents).
 
 Powered by [OpenGuardrails](https://openguardrails-for-openclaw.com) SOTA security detection capabilities.
 
-**GitHub**: [https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw-for-openclaw](https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw-for-openclaw)
+**GitHub**: [https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw](https://github.com/openguardrails-for-openclaw/openguardrails-for-openclaw)
 
-**npm**: [https://www.npmjs.com/package/openguardrails-for-openclaw-for-openclaw](https://www.npmjs.com/package/openguardrails-for-openclaw-for-openclaw)
+**npm**: [https://www.npmjs.com/package/openguardrails-for-openclaw](https://www.npmjs.com/package/openguardrails-for-openclaw)
 
 ## OpenGuardrails - State-of-the-Art Security Detection
 
@@ -57,7 +57,7 @@ Long Content (email/webpage/document)
 
 ```bash
 # Install from npm
-openclaw plugins install openguardrails-for-openclaw-for-openclaw
+openclaw plugins install openguardrails-for-openclaw
 
 # Restart gateway to load the plugin
 openclaw gateway restart
