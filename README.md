@@ -1,6 +1,6 @@
 # MoltGuard
 
-[![npm version](https://img.shields.io/npm/v/moltguard.svg)](https://www.npmjs.com/package/moltguard)
+[![npm version](https://img.shields.io/npm/v/@openguardrails/moltguard.svg)](https://www.npmjs.com/package/@openguardrails/moltguard)
 [![GitHub](https://img.shields.io/github/license/moltguard/moltguard)](https://github.com/openguardrails/moltguard)
 
 Detect prompt injection attacks hidden in long content (emails, web pages, documents).
@@ -9,7 +9,7 @@ Powered by [OpenGuardrails](https://openguardrails.com) SOTA security detection 
 
 **GitHub**: [https://github.com/openguardrails/moltguard](https://github.com/openguardrails/moltguard)
 
-**npm**: [https://www.npmjs.com/package/moltguard](https://www.npmjs.com/package/moltguard)
+**npm**: [https://www.npmjs.com/package/@openguardrails/moltguard](https://www.npmjs.com/package/@openguardrails/moltguard)
 
 ## OpenGuardrails - State-of-the-Art Security Detection
 
@@ -57,7 +57,7 @@ Long Content (email/webpage/document)
 
 ```bash
 # Install from npm
-openclaw plugins install moltguard
+openclaw plugins install @openguardrails/moltguard
 
 # Restart gateway to load the plugin
 openclaw gateway restart
@@ -276,7 +276,7 @@ Edit OpenClaw config file (`~/.openclaw/openclaw.json`):
 ## Uninstall
 
 ```bash
-openclaw plugins uninstall moltguard
+openclaw plugins uninstall @openguardrails/moltguard
 openclaw gateway restart
 ```
 

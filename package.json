@@ -1,6 +1,6 @@
 {
-  "name": "moltguard",
-  "version": "3.0.2",
+  "name": "@openguardrails/moltguard",
+  "version": "3.0.3",
   "description": "Agent-based prompt injection detection for OpenClaw powered by OpenGuardrails SOTA security",
   "type": "module",
   "main": "index.ts",

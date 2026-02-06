@@ -28,7 +28,7 @@ Without protection, your agent may follow these malicious instructions, leading 
 Install the plugin from npm:
 
 ```bash
-openclaw plugins install moltguard
+openclaw plugins install @openguardrails/moltguard
 ```
 
 Restart the gateway to load the plugin:
@@ -182,7 +182,7 @@ Detections will be logged and visible in `/og_report`, but content won't be bloc
 Download the test file with hidden injection:
 
 ```bash
-curl -L -o /tmp/test-email.txt https://raw.githubusercontent.com/moltguard/moltguard/main/samples/test-email.txt
+curl -L -o /tmp/test-email.txt https://raw.githubusercontent.com/openguardrails/moltguard/main/samples/test-email.txt
 ```
 
 Ask your agent to read the file:
@@ -222,13 +222,13 @@ Set up daily detection reports:
 ## Uninstall
 
 ```bash
-openclaw plugins uninstall moltguard
+openclaw plugins uninstall @openguardrails/moltguard
 openclaw gateway restart
 ```
 
 ## Links
 
 - GitHub: https://github.com/openguardrails/moltguard
-- npm: https://www.npmjs.com/package/moltguard
+- npm: https://www.npmjs.com/package/@openguardrails/moltguard
 - OpenGuardrails: https://moltguard.com
 - Technical Paper: https://arxiv.org/abs/2510.19169
