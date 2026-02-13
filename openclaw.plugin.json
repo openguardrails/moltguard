@@ -26,6 +26,14 @@
       "dbPath": {
         "type": "string",
         "description": "Path to SQLite database for logging (default: ~/.openclaw/openclawguard.db)"
+      },
+      "autoRegister": {
+        "type": "boolean",
+        "description": "Automatically register an API key if apiKey is missing (default: true)"
+      },
+      "apiBaseUrl": {
+        "type": "string",
+        "description": "MoltGuard API base URL (default: https://api.moltguard.com)"
       }
     }
   },
@@ -51,6 +59,16 @@
     "dbPath": {
       "label": "Database Path",
       "help": "Custom path for the analysis log database",
+      "advanced": true
+    },
+    "autoRegister": {
+      "label": "Auto-register API Key",
+      "help": "If enabled and apiKey is empty, MoltGuard will register a key on first use. Disable for strict no-network/managed deployments.",
+      "advanced": true
+    },
+    "apiBaseUrl": {
+      "label": "API Base URL",
+      "help": "Override the MoltGuard API endpoint (e.g. staging or self-hosted).",
       "advanced": true
     }
   }

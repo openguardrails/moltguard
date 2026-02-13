@@ -12,6 +12,8 @@ export type OpenClawGuardConfig = {
   apiKey?: string;
   timeoutMs?: number;
   dbPath?: string;
+  autoRegister?: boolean;
+  apiBaseUrl?: string;
 };
 
 // =============================================================================

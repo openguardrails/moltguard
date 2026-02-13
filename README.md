@@ -31,7 +31,7 @@ Before any content leaves your machine, MoltGuard automatically strips sensitive
 Only sanitized content is sent for analysis — injection patterns are preserved, but your sensitive data never leaves the machine.
 
 - **Local sanitization first.** PII and secrets are stripped before any API call.
-- **Your API key is yours.** Each installation gets its own unique API key, automatically registered on first use and stored locally at `~/.openclaw/moltguard-credentials.json`. No shared or hard-coded keys.
+- **Your API key is yours.** Each installation gets its own unique API key, automatically registered on first use and stored locally at `~/.openclaw/credentials/moltguard/credentials.json`. No shared or hard-coded keys.
 - **Content is analyzed via the MoltGuard API** (`api.moltguard.com`) over HTTPS. Only sanitized content is sent. Content is not stored or used for training after analysis completes.
 - **Local audit log only.** Analysis results are stored in a local SQLite database on your machine.
 - **No third-party LLM calls.** The plugin calls the MoltGuard API directly — no content is forwarded to OpenAI or other third-party services.
@@ -236,7 +236,7 @@ openclaw gateway restart
 To also remove your stored API key:
 
 ```bash
-rm ~/.openclaw/moltguard-credentials.json
+rm ~/.openclaw/credentials/moltguard/credentials.json
 ```
 
 ## Development

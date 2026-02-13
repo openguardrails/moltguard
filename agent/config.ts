@@ -11,10 +11,10 @@ import fs from "node:fs";
 // API Configuration
 // =============================================================================
 
-export const MOLTGUARD_API_BASE_URL = "https://api.moltguard.com";
+export const DEFAULT_API_BASE_URL = "https://api.moltguard.com";
 
-const CREDENTIALS_DIR = path.join(os.homedir(), ".openclaw");
-const CREDENTIALS_FILE = path.join(CREDENTIALS_DIR, "moltguard-credentials.json");
+const CREDENTIALS_DIR = path.join(os.homedir(), ".openclaw/credentials/moltguard");
+const CREDENTIALS_FILE = path.join(CREDENTIALS_DIR, "credentials.json");
 
 // =============================================================================
 // API Key Management
@@ -43,8 +43,8 @@ export function saveApiKey(apiKey: string): void {
   );
 }
 
-export async function registerApiKey(agentName: string): Promise<string> {
-  const response = await fetch(`${MOLTGUARD_API_BASE_URL}/api/register`, {
+export async function registerApiKey(agentName: string, baseUrl: string = DEFAULT_API_BASE_URL): Promise<string> {
+  const response = await fetch(`${baseUrl}/api/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ agentName }),
@@ -73,6 +73,8 @@ export const DEFAULT_CONFIG: Required<OpenClawGuardConfig> = {
   apiKey: "",
   timeoutMs: 60000,
   dbPath: path.join(os.homedir(), ".openclaw", "openclawguard.db"),
+  autoRegister: true,
+  apiBaseUrl: DEFAULT_API_BASE_URL,
 };
 
 // =============================================================================
@@ -86,5 +88,7 @@ export function resolveConfig(config?: Partial<OpenClawGuardConfig>): Required<O
     apiKey: config?.apiKey ?? DEFAULT_CONFIG.apiKey,
     timeoutMs: config?.timeoutMs ?? DEFAULT_CONFIG.timeoutMs,
     dbPath: config?.dbPath ?? DEFAULT_CONFIG.dbPath,
+    autoRegister: config?.autoRegister ?? DEFAULT_CONFIG.autoRegister,
+    apiBaseUrl: config?.apiBaseUrl ?? DEFAULT_CONFIG.apiBaseUrl,
   };
 }

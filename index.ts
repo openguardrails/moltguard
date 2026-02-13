@@ -124,9 +124,10 @@ const openClawGuardPlugin = {
       if (savedKey) {
         resolvedApiKey = savedKey;
         log.info("Loaded API key from credentials file");
-      } else {
-        // Auto-register in the background on first use
+      } else if (config.autoRegister) {
         log.info("No API key found — will auto-register on first analysis");
+      } else {
+        log.warn("No API key configured and autoRegister is disabled. Analyses will fail until apiKey is set.");
       }
     }
 
@@ -163,6 +164,8 @@ const openClawGuardPlugin = {
         {
           apiKey: resolvedApiKey,
           timeoutMs: config.timeoutMs,
+          autoRegister: config.autoRegister,
+          apiBaseUrl: config.apiBaseUrl,
         },
         log,
       ).then((verdict) => {
@@ -211,6 +214,8 @@ const openClawGuardPlugin = {
           {
             apiKey: resolvedApiKey,
             timeoutMs: config.timeoutMs,
+            autoRegister: config.autoRegister,
+            apiBaseUrl: config.apiBaseUrl,
           },
           log,
         );
@@ -254,7 +259,9 @@ const openClawGuardPlugin = {
           "",
           `- Enabled: ${config.enabled}`,
           `- Block on risk: ${config.blockOnRisk}`,
-          `- API key: ${resolvedApiKey ? "configured" : "not set (will auto-register)"}`,
+          `- API key: ${resolvedApiKey ? "configured" : config.autoRegister ? "not set (will auto-register)" : "not set (autoRegister disabled)"}`,
+          `- Auto-register: ${config.autoRegister}`,
+          `- API base URL: ${config.apiBaseUrl}`,
           "",
           "**Statistics**",
           `- Total analyses: ${stats.totalAnalyses}`,

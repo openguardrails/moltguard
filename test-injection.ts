@@ -128,6 +128,8 @@ async function runTests() {
         {
           apiKey: "",
           timeoutMs: 60000,
+          autoRegister: true,
+          apiBaseUrl: "https://api.moltguard.com",
         },
         log,
       );

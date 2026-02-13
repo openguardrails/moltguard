@@ -13,7 +13,7 @@ import type {
   MoltGuardApiResponse,
 } from "./types.js";
 import {
-  MOLTGUARD_API_BASE_URL,
+  DEFAULT_API_BASE_URL,
   loadApiKey,
   registerApiKey,
 } from "./config.js";
@@ -26,13 +26,20 @@ import { sanitizeContent } from "./sanitizer.js";
 export type RunnerConfig = {
   apiKey: string;
   timeoutMs: number;
+  autoRegister: boolean;
+  apiBaseUrl: string;
 };
 
 // =============================================================================
 // API Key Resolution
 // =============================================================================
 
-async function ensureApiKey(configKey: string, log: Logger): Promise<string> {
+async function ensureApiKey(
+  configKey: string,
+  autoRegister: boolean,
+  apiBaseUrl: string,
+  log: Logger,
+): Promise<string> {
   // 1. Use explicitly configured key
   if (configKey) {
     return configKey;
@@ -44,10 +51,17 @@ async function ensureApiKey(configKey: string, log: Logger): Promise<string> {
     return savedKey;
   }
 
-  // 3. Auto-register
+  // 3. Auto-register (if enabled)
+  if (!autoRegister) {
+    throw new Error(
+      "No API key configured and autoRegister is disabled. " +
+      "Please set apiKey in your MoltGuard plugin config or enable autoRegister.",
+    );
+  }
+
   log.info("No API key found — registering with MoltGuard...");
-  const newKey = await registerApiKey("openclaw-agent");
-  log.info("Registered with MoltGuard. API key saved to ~/.openclaw/moltguard-credentials.json");
+  const newKey = await registerApiKey("openclaw-agent", apiBaseUrl);
+  log.info("Registered with MoltGuard. API key saved to ~/.openclaw/credentials/moltguard/credentials.json");
   return newKey;
 }
 
@@ -93,7 +107,8 @@ export async function runGuardAgent(
   }
 
   // Ensure we have an API key
-  const apiKey = await ensureApiKey(config.apiKey, log);
+  const baseUrl = config.apiBaseUrl || DEFAULT_API_BASE_URL;
+  const apiKey = await ensureApiKey(config.apiKey, config.autoRegister, baseUrl, log);
 
   // Call MoltGuard API
   const controller = new AbortController();
@@ -101,7 +116,7 @@ export async function runGuardAgent(
 
   try {
     const response = await fetch(
-      `${MOLTGUARD_API_BASE_URL}/api/check/tool-call`,
+      `${baseUrl}/api/check/tool-call`,
       {
         method: "POST",
         headers: {
