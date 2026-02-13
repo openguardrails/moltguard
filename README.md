@@ -1,13 +1,13 @@
 # MoltGuard
 
 [![npm version](https://img.shields.io/npm/v/@openguardrails/moltguard.svg)](https://www.npmjs.com/package/@openguardrails/moltguard)
-[![GitHub](https://img.shields.io/github/license/moltguard/moltguard)](https://github.com/moltguard/moltguard)
+[![GitHub](https://img.shields.io/github/license/openguardrails/moltguard)](https://github.com/openguardrails/moltguard)
 
 **Comprehensive AI security for OpenClaw**: Local prompt sanitization + Prompt injection detection.
 
 Powered by the [MoltGuard](https://moltguard.com) detection API.
 
-**GitHub**: [https://github.com/moltguard/moltguard](https://github.com/moltguard/moltguard)
+**GitHub**: [https://github.com/openguardrails/moltguard](https://github.com/openguardrails/moltguard)
 
 **npm**: [https://www.npmjs.com/package/@openguardrails/moltguard](https://www.npmjs.com/package/@openguardrails/moltguard)
 
@@ -242,7 +242,7 @@ You should see:
 Download the test file with hidden injection:
 
 ```bash
-curl -L -o /tmp/test-email.txt https://raw.githubusercontent.com/moltguard/moltguard/main/samples/test-email.txt
+curl -L -o /tmp/test-email.txt https://raw.githubusercontent.com/openguardrails/moltguard/main/samples/test-email.txt
 ```
 
 ### 2. Test in OpenClaw
@@ -451,7 +451,7 @@ rm ~/.openclaw/credentials/moltguard/credentials.json
 
 ```bash
 # Clone repository
-git clone https://github.com/moltguard/moltguard.git
+git clone https://github.com/openguardrails/moltguard.git
 cd moltguard
 
 # Install dependencies

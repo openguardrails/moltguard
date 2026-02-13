@@ -1,6 +1,6 @@
 {
   "name": "@openguardrails/moltguard",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "Local prompt sanitization and prompt injection detection for OpenClaw powered by MoltGuard",
   "type": "module",
   "main": "index.ts",
@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moltguard/moltguard.git"
+    "url": "git+https://github.com/openguardrails/moltguard.git"
   },
   "bugs": {
-    "url": "https://github.com/moltguard/moltguard/issues"
+    "url": "https://github.com/openguardrails/moltguard/issues"
   },
-  "homepage": "https://github.com/moltguard/moltguard#readme",
+  "homepage": "https://github.com/openguardrails/moltguard#readme",
   "files": [
     "index.ts",
     "gateway-manager.ts",
