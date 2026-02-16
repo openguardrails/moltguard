@@ -23,6 +23,7 @@ export class GatewayManager {
   private autoStart: boolean;
   private log: Logger;
   private isReady = false;
+  private isStarting = false; // Prevent concurrent start() calls (race condition fix)
 
   constructor(options: GatewayOptions, logger: Logger) {
     this.port = options.port;
@@ -34,6 +35,12 @@ export class GatewayManager {
    * Start the gateway process
    */
   async start(): Promise<void> {
+    // Prevent concurrent start() calls (race condition fix)
+    if (this.isStarting) {
+      this.log.warn("Gateway start already in progress, skipping");
+      return;
+    }
+
     if (this.process) {
       this.log.warn("Gateway already running");
       return;
@@ -43,6 +50,8 @@ export class GatewayManager {
       this.log.info("Gateway autoStart disabled, skipping");
       return;
     }
+
+    this.isStarting = true;
 
     try {
       this.log.info(`Starting gateway on port ${this.port}...`);
@@ -120,6 +129,8 @@ export class GatewayManager {
     } catch (error) {
       this.log.error(`Failed to start gateway: ${error}`);
       throw error;
+    } finally {
+      this.isStarting = false;
     }
   }
 
