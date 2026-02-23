@@ -3,6 +3,8 @@
 [![npm version](https://img.shields.io/npm/v/@openguardrails/moltguard.svg)](https://www.npmjs.com/package/@openguardrails/moltguard)
 [![GitHub](https://img.shields.io/github/license/openguardrails/moltguard)](https://github.com/openguardrails/moltguard)
 
+**This project has been merged to OpenGuardrails v6 main branch. Please go to https://github.com/openguardrails/openguardrails**
+
 **Comprehensive AI security for OpenClaw**: Local prompt sanitization + Prompt injection detection.
 
 Powered by the [MoltGuard](https://moltguard.com) detection API.
